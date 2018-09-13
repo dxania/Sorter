@@ -1,5 +1,7 @@
+chara = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+
 def inputs():
-    listb = [str(n) for n in raw_input("Enter the list elements:").split(",")]
+    listb = [n for n in input("Enter the list elements:").split(",")]
     print(list_sort(listb))
 
 def list_sort(lista):
@@ -7,15 +9,17 @@ def list_sort(lista):
     odds = []
     chars = []
     for n in lista:
-        if int(n)%2 == 0:
+        if n in chara:
+            chars.append(n)
+            chars.sort()
+        elif int(n)%2 == 0:
             evens.append(n)
             evens.sort()
         elif int(n)%2 == 1:
             odds.append(n)
             odds.sort()
         else:
-            chars.append(n)
-            chars.sort()
+            print("Input was not an interger or letter")
     return evens, odds, chars
     
 inputs()
